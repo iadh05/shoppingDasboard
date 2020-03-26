@@ -2,14 +2,22 @@ import React, { useState } from 'react';
 
 import InputForm from '../input-form/InputForm';
 import CustomButton from '../custom-button/CustomButton';
+import { auth, signInWithGoogle } from '../../firebase/firebase.utils';
 import './sign-in.scss';
 
 function SignIn() {
   const [signInForm, setSignInForm] = useState({ email: '', password: '' });
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    setSignInForm({ email: '', password: '' });
+
+    const { email, password } = signInForm;
+    try {
+      await auth.signInWithEmailAndPassword(email, password);
+      setSignInForm({ email: '', password: '' });
+    } catch (error) {
+      console.log('error :', error);
+    }
   }
   function handleChange(e) {
     const { name, value } = e.target;
@@ -36,7 +44,12 @@ function SignIn() {
           required
           label="Password"
         />
-        <CustomButton type="submit">Sign In</CustomButton>
+        <div className="buttons">
+          <CustomButton type="submit">Sign In</CustomButton>
+          <CustomButton isGoogleSignIn onClick={signInWithGoogle}>
+            Sign In with google
+          </CustomButton>
+        </div>
       </form>
     </div>
   );

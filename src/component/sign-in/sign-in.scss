@@ -5,4 +5,18 @@
   .title {
     margin: 10px 0px;
   }
+  .buttons {
+    display: flex;
+    justify-content: space-around;
+  }
+}
+@media screen and (max-width: 600px) {
+  .sign-in {
+    width: 72vw;
+  }
+  .buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
 }
