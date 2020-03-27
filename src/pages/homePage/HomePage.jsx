@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react';
 
-import Directory from '../../component/directory/Directory';
+import Directory from '../../components/directory/Directory';
 import './homepage.styles.scss';
 
 const HomePage = () => {

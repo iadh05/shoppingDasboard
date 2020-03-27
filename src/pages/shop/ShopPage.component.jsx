@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import PreviewCollection from '../../component/previewCollection/PreviewCollection.component';
+import PreviewCollection from '../../components/previewCollection/PreviewCollection.component';
 import shop from './shop.data';
 
 const ShopPage = () => {
