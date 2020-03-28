@@ -9,6 +9,7 @@ import {
 import CheckoutItem from '../../components/checkout-item/Checkoutitem';
 
 import './check-out.scss';
+import StripeCheckoutButton from '../../components/stripe-button/StripeCheckoutButton';
 
 function CheckOut({ cartItems, total }) {
   return (
@@ -34,6 +35,8 @@ function CheckOut({ cartItems, total }) {
         <CheckoutItem key={cartItem.id} cartItem={cartItem} />
       ))}
       <div className="total">Total:${total}</div>
+
+      <StripeCheckoutButton price={total} />
     </div>
   );
 }

@@ -5,7 +5,7 @@ import { PersistGate } from 'redux-persist/integration/react';
 
 import Header from './components/header/Header.jsx';
 import HomePage from './pages/homePage/HomePage';
-import ShopPage from './pages/shop/ShopPage.component.jsx';
+import Shop from './pages/shop/Shop.jsx';
 import Auth from './pages/auth/Auth';
 import CheckOut from './pages/checkout/CheckOut';
 
@@ -38,7 +38,7 @@ function App({ setCurrentUser, currentUser }) {
           <div className="content">
             <Switch>
               <Route exact path="/" component={HomePage} />
-              <Route exact path="/shop" component={ShopPage} />
+              <Route path="/shop" component={Shop} />
               <Route exact path="/checkout" component={CheckOut} />
               <Route
                 path="/auth"
