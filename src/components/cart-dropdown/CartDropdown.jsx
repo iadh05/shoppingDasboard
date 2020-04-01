@@ -8,20 +8,25 @@ import CustomButton from '../custom-button/CustomButton';
 import { toggleCart } from '../../redux/cart/cart.actions';
 import { selectCartItem } from '../../redux/cart/cart.selectors';
 
+import {
+  CartItemContainer,
+  CartDropDownContainer,
+  EmptyMessageContainer
+} from './CartDropDown.style';
 import './cart-dropdown.scss';
 
 function CartDropdown({ cartItems, history, dispatch }) {
   return (
-    <div className="cart-dropdown">
-      <div className="cart-items">
+    <CartDropDownContainer>
+      <CartItemContainer>
         {cartItems.length ? (
           cartItems.map(cartItem => (
             <CartItem key={cartItem.id} item={cartItem} />
           ))
         ) : (
-          <span className="empty-message">Your cart is empty</span>
+          <EmptyMessageContainer>Your cart is empty</EmptyMessageContainer>
         )}
-      </div>
+      </CartItemContainer>
       <CustomButton
         onClick={() => {
           history.push('/checkout');
@@ -30,7 +35,7 @@ function CartDropdown({ cartItems, history, dispatch }) {
       >
         GO tO CHECKOUT
       </CustomButton>
-    </div>
+    </CartDropDownContainer>
   );
 }
 

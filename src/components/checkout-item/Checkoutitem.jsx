@@ -3,32 +3,32 @@ import { connect } from 'react-redux';
 
 import { removeItem, deleteItem, addItem } from '../../redux/cart/cart.actions';
 
+import {
+  CheckoutItemContainer,
+  ImageContainer,
+  TextContainer,
+  QuantityContainer,
+  RemoveButton
+} from './CheckoutItem.style';
+
 import './check-out-item.scss';
 
-function Checkoutitem({ cartItem, deleteItem, removeItem, addItem }) {
+function CheckoutItem({ cartItem, deleteItem, removeItem, addItem }) {
   const { imageUrl, name, quantity, price } = cartItem;
   return (
-    <div className="checkout-item">
-      <div className="image-container">
+    <CheckoutItemContainer>
+      <ImageContainer>
         <img alt="item" src={imageUrl} />
-      </div>
-      <span className="name">{name} </span>
-      <span className="quantity">
-        <div className="arrow" onClick={() => removeItem(cartItem)}>
-          {' '}
-          &#10094;
-        </div>
-        <div className="value">{quantity}</div>
-        <div className="arrow" onClick={() => addItem(cartItem)}>
-          {' '}
-          &#10095;
-        </div>{' '}
-      </span>
-      <span className="price">{price} </span>
-      <div className="remove-button" onClick={() => deleteItem(cartItem)}>
-        &#10005;
-      </div>
-    </div>
+      </ImageContainer>
+      <TextContainer>{name} </TextContainer>
+      <QuantityContainer>
+        <span onClick={() => removeItem(cartItem)}> &#10094;</span>
+        <div>{quantity}</div>
+        <span onClick={() => addItem(cartItem)}> &#10095;</span>{' '}
+      </QuantityContainer>
+      <TextContainer>{price} </TextContainer>
+      <RemoveButton onClick={() => deleteItem(cartItem)}>&#10005;</RemoveButton>
+    </CheckoutItemContainer>
   );
 }
 const dispatchMapToProps = dispatch => ({
@@ -36,4 +36,4 @@ const dispatchMapToProps = dispatch => ({
   removeItem: cartItem => dispatch(removeItem(cartItem)),
   addItem: cartItem => dispatch(addItem(cartItem))
 });
-export default connect(null, dispatchMapToProps)(Checkoutitem);
+export default connect(null, dispatchMapToProps)(CheckoutItem);

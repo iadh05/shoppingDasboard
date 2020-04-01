@@ -7,7 +7,7 @@ import Header from './components/header/Header.jsx';
 import HomePage from './pages/homePage/HomePage';
 import Shop from './pages/shop/Shop.jsx';
 import Auth from './pages/auth/Auth';
-import CheckOut from './pages/checkout/CheckOut';
+import Checkout from './pages/checkout/Checkout';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
@@ -39,7 +39,7 @@ function App({ setCurrentUser, currentUser }) {
             <Switch>
               <Route exact path="/" component={HomePage} />
               <Route path="/shop" component={Shop} />
-              <Route exact path="/checkout" component={CheckOut} />
+              <Route exact path="/checkout" component={Checkout} />
               <Route
                 path="/auth"
                 render={() => (currentUser ? <Redirect to="/" /> : <Auth />)}
