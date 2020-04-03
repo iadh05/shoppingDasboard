@@ -7,7 +7,7 @@ import Header from './components/header/Header.jsx';
 import HomePage from './pages/homePage/HomePage';
 import Shop from './pages/shop/Shop.jsx';
 import Auth from './pages/auth/Auth';
-import Checkout from './pages/checkout/Checkout';
+import Checkout from './pages/checkout/Checkout.jsx';
 
 import { auth, createUserProfileDocument } from './firebase/firebase.utils';
 
