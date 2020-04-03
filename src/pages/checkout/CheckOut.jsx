@@ -28,7 +28,7 @@ function CheckOut({ cartItems, total }) {
           <span>Price</span>
         </div>
         <div className="header-block">
-          <span>Remove</span>
+          <span>Remov</span>
         </div>
       </div>
       {cartItems.map(cartItem => (
